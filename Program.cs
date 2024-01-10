@@ -112,7 +112,7 @@ internal class InterfejsSortowniczy : InterfejsTablic
 
     private void ZamienJesliWieksze(uint i)
     {
-        if (this.tab[i] > (this.tab[i + 1]))
+        if (this.tab[i] > this.tab[i + 1])
         {
             (this.tab[i], this.tab[i + 1]) = (this.tab[i + 1], this.tab[i]);
             flaga = true;
