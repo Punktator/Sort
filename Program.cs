@@ -14,7 +14,7 @@ class Program
         uint rozmiar = Convert.ToUInt32(Console.ReadLine());
         var test = new InterfejsSortowniczy(rozmiar);
 
-        Console.WriteLine(test);
+        //Console.WriteLine(test);
 
         Console.WriteLine();
 
@@ -22,7 +22,7 @@ class Program
         test.Bombluj1();
         czasomierz.Stop();
         t1 = czasomierz.Elapsed;
-        Console.WriteLine(test);
+        //Console.WriteLine(test);
         Console.WriteLine();
         Console.Write("t1 = ");
         Console.WriteLine(t1);
@@ -35,10 +35,11 @@ class Program
         test.Bombluj2();
         czasomierz.Stop();
         t2 = czasomierz.Elapsed;
-        Console.WriteLine(test);
+        //Console.WriteLine(test);
         Console.WriteLine();
         Console.Write("t2 = ");
         Console.WriteLine(t2);
+        Console.WriteLine(test.CzyPosortowaneNiemalejonco());
     }
 }
 
@@ -78,7 +79,7 @@ internal class InterfejsSortowniczy : InterfejsTablic
             flaga = false;
             for (uint i = 0; i < this.tab.Length - 1; i++)
             {
-                ZamienJesliWieksze(i);
+                ZamienJesliWieksze(i, i+1);
             } 
         } while (flaga);
     }
@@ -88,13 +89,13 @@ internal class InterfejsSortowniczy : InterfejsTablic
         do
         {
             flaga = false;
-            for (uint i = 0; i  <= this.tab.Length - 1; i++)
+            for (uint i = 0; i  < this.tab.Length - 1; i++)
             {
-                ZamienJesliWieksze(i);
+                ZamienJesliWieksze(i, i+1);
             }
             for (uint i = Convert.ToUInt32(this.tab.Length - 1); i > 0; i--)
             {
-                ZamienJesliWieksze(i);
+                ZamienJesliWieksze(i, i-1);
             }
         } while (flaga);
     }
@@ -110,11 +111,11 @@ internal class InterfejsSortowniczy : InterfejsTablic
         return true;
     }
 
-    private void ZamienJesliWieksze(uint i)
+    private void ZamienJesliWieksze(uint i, uint j)
     {
-        if (this.tab[i] > this.tab[i + 1])
+        if (this.tab[i] > this.tab[j] == i < j)
         {
-            (this.tab[i], this.tab[i + 1]) = (this.tab[i + 1], this.tab[i]);
+            (this.tab[i], this.tab[j]) = (this.tab[j], this.tab[i]);
             flaga = true;
         }
     }
