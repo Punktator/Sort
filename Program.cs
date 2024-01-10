@@ -29,8 +29,8 @@ class Program
         Console.WriteLine(test.CzyPosortowaneNiemalejonco());
 
         Console.WriteLine();
-        test = new(rozmiar);
 
+        test.WypelnijLosowo();
         czasomierz.Restart();
         test.Bombluj2();
         czasomierz.Stop();
@@ -47,7 +47,7 @@ internal abstract class InterfejsTablic
     protected int [] tab;
     protected Random RNG = new();
 
-    protected void WypelnijLosowo()
+    internal void WypelnijLosowo()
     {
         for (uint i = 0; i < this.tab.Length; i++) 
         {
