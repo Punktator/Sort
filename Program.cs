@@ -6,7 +6,7 @@ namespace Sort;
 
 class Program
 {
-    static public void Main()
+    static internal void Main()
     {
         TimeSpan t1, t2;
         Stopwatch czasomierz = new();
